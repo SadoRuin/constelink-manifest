@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: constelink-authserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: constelink-authserver
+  template:
+    metadata:
+      labels:
+        app: constelink-authserver
+    spec:
+      containers:
+      - name: constelink-authserver
+        image: docker.io/sadoruin/constelink-authserver:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: constelink-authserver
+spec:
+  selector:
+    app: constelink-authserver
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+

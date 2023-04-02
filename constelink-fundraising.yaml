@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: constelink-fundraising
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: constelink-fundraising
+  template:
+    metadata:
+      labels:
+        app: constelink-fundraising
+    spec:
+      containers:
+      - name: constelink-fundraising
+        image: docker.io/sadoruin/constelink-fundraising:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: constelink-fundraising
+spec:
+  selector:
+    app: constelink-fundraising
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+

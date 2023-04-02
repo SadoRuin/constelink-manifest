@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: constelink-member
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: constelink-member
+  template:
+    metadata:
+      labels:
+        app: constelink-member
+    spec:
+      containers:
+      - name: constelink-member
+        image: docker.io/sadoruin/constelink-member:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: constelink-member
+spec:
+  selector:
+    app: constelink-member
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+

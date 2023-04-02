@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: constelink-beneficiary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: constelink-beneficiary
+  template:
+    metadata:
+      labels:
+        app: constelink-beneficiary
+    spec:
+      containers:
+      - name: constelink-beneficiary
+        image: docker.io/sadoruin/constelink-beneficiary:v1
+        ports:
+        - containerPort: 8080
+        - containerPort: 9090
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: constelink-beneficiary
+spec:
+  selector:
+    app: constelink-beneficiary
+  ports:
+    - name: springboot
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: grpc
+      protocol: TCP
+      port: 9090
+      targetPort: 9090
+  type: ClusterIP
+
