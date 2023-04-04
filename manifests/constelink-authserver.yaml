@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: constelink-authserver
-        image: docker.io/sadoruin/constelink-authserver:91
+        image: docker.io/sadoruin/constelink-authserver:92
         ports:
         - containerPort: 8080
 ---
