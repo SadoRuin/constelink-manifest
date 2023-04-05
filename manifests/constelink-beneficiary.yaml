@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: constelink-beneficiary
-        image: docker.io/sadoruin/constelink-beneficiary:6
+        image: docker.io/sadoruin/constelink-beneficiary:7
         ports:
         - containerPort: 8080
         - containerPort: 9090
