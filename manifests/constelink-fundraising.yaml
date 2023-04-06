@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: constelink-fundraising
-        image: docker.io/sadoruin/constelink-fundraising:12
+        image: docker.io/sadoruin/constelink-fundraising:13
         ports:
         - containerPort: 8080
 ---
