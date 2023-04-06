@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: docker.io/sadoruin/constelink-front:85
+        image: docker.io/sadoruin/constelink-front:86
         ports:
         - containerPort: 3000
 ---
