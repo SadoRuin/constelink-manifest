@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: constelink-file
-        image: docker.io/sadoruin/constelink-file:6
+        image: docker.io/sadoruin/constelink-file:7
         ports:
         - containerPort: 8080
 ---
